@@ -4,6 +4,8 @@ package tn.esprit.autoloc.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.ArrayList;
 
 @Entity
 @Getter
@@ -21,5 +23,14 @@ public class Client {
     private String email;
     private String telephone;
     private String numPermis;
+
     private LocalDate dateInscription;
+
+    @OneToMany(
+            mappedBy = "client",
+            cascade = CascadeType.PERSIST,
+            fetch = FetchType.LAZY
+    )
+    private List<Reservation> reservations = new ArrayList<>();
 }
+
