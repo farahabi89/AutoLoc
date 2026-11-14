@@ -39,4 +39,17 @@ public class EmployeController {
     public Employe modifyEmploye(@RequestBody Employe employe) {
         return employeService.modifyEmploye(employe);
     }
+    // Désaffecter un employé de son agence
+    @PutMapping("/desaffecter-employe/{idEmploye}")
+    public Employe desaffecterEmploye(@PathVariable Long idEmploye) {
+        return employeService.desaffecterEmploye(idEmploye);
+    }
+
+    // Affecter un employé à une agence
+    @PutMapping("/affecter-employe/{idEmploye}/{idAgence}")
+    public Employe affecterEmploye(
+            @PathVariable Long idEmploye,
+            @PathVariable Long idAgence) {
+        return employeService.affecterEmploye(idEmploye, idAgence);
+    }
 }

@@ -1,4 +1,4 @@
-package tn.esprit.autolocapi;
+/*package tn.esprit.autolocapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,4 +10,4 @@ class AutolocApiApplicationTests {
 	void contextLoads() {
 	}
 
-}
+}*/

@@ -39,4 +39,25 @@ public class VehiculeController {
     public Vehicule modifyVehicule(@RequestBody Vehicule vehicule) {
         return vehiculeService.modifyVehicule(vehicule);
     }
+
+
+
+    // Affecter un équipement à un véhicule
+    @PutMapping("/affecter-equipement/{idVehicule}/{idEquipement}")
+    public Vehicule affecterEquipement(
+            @PathVariable Long idVehicule,
+            @PathVariable Long idEquipement) {
+
+        return vehiculeService.affecterEquipement(idVehicule, idEquipement);
+    }
+
+    // Désaffecter un équipement d'un véhicule
+    @PutMapping("/desaffecter-equipement/{idVehicule}/{idEquipement}")
+    public Vehicule desaffecterEquipement(
+            @PathVariable Long idVehicule,
+            @PathVariable Long idEquipement) {
+
+        return vehiculeService.desaffecterEquipement(idVehicule, idEquipement);
+    }
+
 }

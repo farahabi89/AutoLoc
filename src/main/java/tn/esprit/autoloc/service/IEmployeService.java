@@ -1,4 +1,3 @@
-
 package tn.esprit.autoloc.service;
 
 import tn.esprit.autoloc.domain.Employe;
@@ -15,4 +14,8 @@ public interface IEmployeService {
     void removeEmploye(Long employeId);
 
     Employe modifyEmploye(Employe employe);
+
+    Employe desaffecterEmploye(Long idEmploye);
+
+    Employe affecterEmploye(Long idEmploye, Long idAgence);
 }

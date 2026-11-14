@@ -1,4 +1,3 @@
-
 package tn.esprit.autoloc.domain;
 import jakarta.persistence.*;
 import java.util.List;
@@ -9,7 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.math.BigDecimal;
-
 @Entity
 @Table(name = "vehicule")
 @Getter
@@ -17,7 +15,6 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Vehicule {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idVehicule;
@@ -37,15 +34,12 @@ public class Vehicule {
 
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal tarifJournalier;
-
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     private StatutVehicule statut;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "agence_id")
     private Agence agence;
-
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "vehicule_equipement",
@@ -53,13 +47,8 @@ public class Vehicule {
             inverseJoinColumns = @JoinColumn(name = "equipement_id")
     )
     private List<Equipement> equipements = new ArrayList<>();
-
     @OneToMany(mappedBy = "vehicule", fetch = FetchType.LAZY)
     private List<Maintenance> maintenances = new ArrayList<>();
-
     @OneToMany(mappedBy = "vehicule", fetch = FetchType.LAZY)
     private List<Reservation> reservations = new ArrayList<>();
-
-
 }
-
